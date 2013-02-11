@@ -31,5 +31,6 @@ echo --------------------------
 echo patching sourcemod-central
 echo --------------------------
 cd sourcemod-central
+cat ../_hgrc >> .hg/hgrc
 hg qimport ../notf2.patch
 
