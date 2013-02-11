@@ -33,4 +33,4 @@ echo --------------------------
 cd sourcemod-central
 cat ../_hgrc >> .hg/hgrc
 hg qimport ../notf2.patch
-
+hg qpush
