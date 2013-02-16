@@ -17,10 +17,8 @@ cd ..
 
 echo Updating sourcemod-central...
 cd sourcemod-central
+hg pull
 hg update -C
-hg qpop
-hg pull -u
-hg qpush
 cd ..
 
 echo Updating left4downtown2...

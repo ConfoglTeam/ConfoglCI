@@ -27,10 +27,3 @@ echo --------------
 mkdir -p srcds/left4dead2/
 ln -sf $(pwd)/hl2sdk-l4d2/lib/linux srcds/left4dead2/bin
 
-echo --------------------------
-echo patching sourcemod-central
-echo --------------------------
-cd sourcemod-central
-cat ../_hgrc >> .hg/hgrc
-hg qimport ../notf2.patch
-hg qpush
