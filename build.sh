@@ -41,7 +41,6 @@ export HL2SDK_L4D2=$HL2SDKL4D2
 export SMSDK=$SOURCEMOD15
 export MMSOURCE=$MMSOURCE19
 export SRCDS_BASE=$d/srcds
-export MYSQL5=$d/mysql
 
 rm -rf build
 mkdir build
