@@ -34,8 +34,8 @@ d=$(pwd)
 
 echo Setting up build environment in $d/build
 
-export SOURCEMOD15=$d/build/sourcemod-central
-export MMSOURCE19=$d/build/mmsource-central
+export SOURCEMOD15=$d/sourcemod-central
+export MMSOURCE19=$d/mmsource-central
 export HL2SDKL4D2=$d/hl2sdk-l4d2
 export HL2SDK_L4D2=$HL2SDKL4D2
 export SMSDK=$SOURCEMOD15
@@ -47,21 +47,9 @@ rm -rf build
 mkdir build
 
 echo Copying files to build/
-cp -R sourcemod-central mmsource-central left4downtown2 build/
+cp -R left4downtown2 build/
 
 cd build
-
-echo Building MMS
-cd mmsource-central
-python3 configure.py
-python3 build.py
-cd ..
-
-echo Building SM
-cd sourcemod-central
-python3 configure.py
-python3 build.py
-cd ..
 
 echo Building l4dt2
 cd left4downtown2
@@ -76,18 +64,9 @@ cd ..
 rm -rf package
 mkdir package
 
-echo Installing metamod to package...
-cp -R build/mmsource-central/package/* package/
-
-echo Installing sourcemod to package...
-cp -R build/sourcemod-central/package/* package/
-
 echo Installing Left4downtown2 to package...
 cp build/left4downtown2/gamedata/left4downtown.l4d2.txt package/addons/sourcemod/gamedata/
 cp build/left4downtown2/Release.playerslots/left4downtown.ext.2.l4d2.so package/addons/sourcemod/extensions/
 cp build/left4downtown2/scripting/include/* package/addons/sourcemod/scripting/include/
 touch package/addons/sourcemod/extensions/left4downtown.autoload
 
-
-echo Creating metamod vdf...
-cp metamod.vdf package/addons/
