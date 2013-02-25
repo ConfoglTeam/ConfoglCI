@@ -52,8 +52,8 @@ cd build
 
 echo Building l4dt2
 cd left4downtown2
-make
-make playerslots
+python3 configure.py
+python3 build.py
 cd ..
 
 echo Build Complete. Packaging...
@@ -64,8 +64,12 @@ rm -rf package
 mkdir package
 
 echo Installing Left4downtown2 to package...
+
+mkdir -p package/addons/sourcemod/scripting/include
+mkdir -p package/addons/sourcemod/extensions
+mkdir -p package/addons/sourcemod/gamedata
+
 cp build/left4downtown2/gamedata/left4downtown.l4d2.txt package/addons/sourcemod/gamedata/
-cp build/left4downtown2/Release.playerslots/left4downtown.ext.2.l4d2.so package/addons/sourcemod/extensions/
+cp build/left4downtown2/left4downtown/left4downtown.ext.2.l4d2.* package/addons/sourcemod/extensions/
 cp build/left4downtown2/scripting/include/* package/addons/sourcemod/scripting/include/
 touch package/addons/sourcemod/extensions/left4downtown.autoload
-
